@@ -13,10 +13,16 @@ def home():
 def timeout():
 	return render_template('timeout.html')
 
+@app.route('/leaderboard')
+def leaderboard():
+	return render_template('leaderboard.html')
+
 @app.errorhandler(404)
 def page_not_find(error):
 	return 'Opps, page you requested is not exsit yet', 404
+	return redirect(url_for('home.html'))
 
+"""
 @app.route('/a')
 def a():
 	return redirect(url_for('hello_world'))
@@ -76,3 +82,4 @@ def f():
 
 if __name__ == '__main__':
 	app.run(host = '0.0.0.0', debug = True)
+"""
